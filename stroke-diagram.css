@@ -1,0 +1,20 @@
+.stroke-diagram--outer-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden
+}
+.stroke-diagram--guide-line {
+    fill: none;
+    stroke: #aaa;
+    stroke-width: 2;
+    stroke-linecap: square;
+    stroke-linejoin: square;
+    stroke-dasharray: 5, 5
+}
+.stroke-diagram--bounding-box {
+    fill: none;
+    stroke: #aaa;
+    stroke-width: 2;
+    stroke-linecap: square;
+    stroke-linejoin: square;
+}
