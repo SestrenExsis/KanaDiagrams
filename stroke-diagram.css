@@ -5,7 +5,7 @@
 }
 .stroke-diagram--guide-line {
     fill: none;
-    stroke: #aaa;
+    stroke: #ddd;
     stroke-width: 2;
     stroke-linecap: square;
     stroke-linejoin: square;
@@ -13,8 +13,29 @@
 }
 .stroke-diagram--bounding-box {
     fill: none;
-    stroke: #aaa;
+    stroke: #ddd;
     stroke-width: 2;
     stroke-linecap: square;
     stroke-linejoin: square;
+}
+
+.stroke_order_diagram--current-path {
+    fill: none;
+    stroke: #000;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.stroke_order_diagram--existing-path {
+    fill: none;
+    stroke: #aaa;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
+.stroke_order_diagram--path-start {
+    fill: rgba(255, 0, 0, 0.7);
+    stroke: none
 }
