@@ -74,25 +74,24 @@ diagrams = {
         ((21, 51), (52, 50), (69, 48), (82, 43)),
         ((46, 17), (48, 27), (58, 52), (71, 68), (22, 48), (5, 96), (66, 88)),
     ],
+    'ku-hiragana': [
+        ((60, 17), (23, 71), (11, 33), (63, 87)),
+    ],
+    'ke-hiragana': [
+        ((25, 21), (16, 80), (27, 84), (35, 70)),
+        ((43, 39), (64, 40), (79, 38), (87, 36)),
+        ((70, 16), (67, 32), (83, 76), (52, 88)),
+    ],
+    'ko-hiragana': [
+        ((28, 25), (39, 30), (56, 31), (68, 28)),
+        ((24, 60), (14, 81), (38, 82), (76, 79)),
+    ],
 }
 
 raw_path_strs = {
-    'ki-hiragana': [
-        "M261,345 C370,355 580,330 706,282",
-        "M215,512 C526,503 692,485 823,437",
-        "M460,179 C480,279 588,528 715,681 C222,485 55,960 668,882",
-    ],
-    'ku-hiragana': [
-        "M604,179 C231,718 115,336 638,876",
-    ],
-    'ke-hiragana': [
-        "M150,129 C97,481 163,508 210,424",
-        "M258,236 C385,241 477,228 527,217",
-        "M423,100 C407,192 503,458 314,529",
-    ],
     'ko-hiragana': [
-        "M172,152 C235,180 340,186 412,173",
-        "M145,361 C85,486 233,493 456,475",
+        "M287,253 C392,300 567,310 687,288",
+        "M242,602 C142,810 388,822 760,792",
     ],
 }
 
@@ -100,7 +99,6 @@ def get_path(path_str) -> tuple:
     # path_str: "M261,345 C370,355 580,330 706,282" -->
     # path: ((26, 35), (37, 36), (58, 33), (71,28))
     parts = path_str.split(' ')
-    # ("M261,345", "C370,355", "580,330", "706,282")
     coords = []
     for part in parts:
         raw_coord = part.split(',')
@@ -112,7 +110,7 @@ def get_path(path_str) -> tuple:
     print(result)
     return result
 
-for raw_path_str in raw_path_strs['ku-hiragana']:
+for raw_path_str in raw_path_strs['ko-hiragana']:
     get_path(raw_path_str)
 
 def get_path_str(coords, offset) -> str:
@@ -130,7 +128,7 @@ def get_path_str(coords, offset) -> str:
     return result
 
 if __name__ == '__main__':
-    diagram_name = 'ki-hiragana'
+    diagram_name = 'ko-hiragana'
     diagram = diagrams[diagram_name]
     stroke_count = len(diagram)
     cell_size = 100
