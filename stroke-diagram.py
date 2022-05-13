@@ -86,12 +86,18 @@ diagrams = {
         ((28, 25), (39, 30), (56, 31), (68, 28)),
         ((24, 60), (14, 81), (38, 82), (76, 79)),
     ],
+    'sa-hiragana': [
+        ((17, 41), (35, 42), (64, 38), (74, 33)),
+        ((44, 20), (46, 36), (60, 59), (70, 68), (18, 45), (6, 97), (65, 88)),
+    ],
+    'shi-hiragana': [
+        ((34, 14), (31, 62), (29, 78), (46, 80), (61, 83), (74, 70), (80, 61)),
+    ]
 }
 
 raw_path_strs = {
-    'ko-hiragana': [
-        "M287,253 C392,300 567,310 687,288",
-        "M242,602 C142,810 388,822 760,792",
+    'shi-hiragana': [
+        "M343,149 C311,629 298,787 469,802 C610,832 747,700 804,610",
     ],
 }
 
@@ -110,7 +116,7 @@ def get_path(path_str) -> tuple:
     print(result)
     return result
 
-for raw_path_str in raw_path_strs['ko-hiragana']:
+for raw_path_str in raw_path_strs['shi-hiragana']:
     get_path(raw_path_str)
 
 def get_path_str(coords, offset) -> str:
@@ -128,7 +134,7 @@ def get_path_str(coords, offset) -> str:
     return result
 
 if __name__ == '__main__':
-    diagram_name = 'ko-hiragana'
+    diagram_name = 'shi-hiragana'
     diagram = diagrams[diagram_name]
     stroke_count = len(diagram)
     cell_size = 100
