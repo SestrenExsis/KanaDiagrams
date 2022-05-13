@@ -92,12 +92,37 @@ diagrams = {
     ],
     'shi-hiragana': [
         ((34, 14), (31, 62), (29, 78), (46, 80), (61, 83), (74, 70), (80, 61)),
-    ]
+    ],
+    'su-hiragana': [
+        ((15, 33), (41, 33), (65, 32), (89, 31)),
+        ((57, 15), (57, 40), (63, 69), (45, 68), (27, 64), (37, 39), (54, 49), (66, 63), (53, 86), (39, 91)),
+    ],
+    'so-hiragana': [
+        ((29, 26), (45, 26), (54, 25), (64, 24), (24, 59), (21, 54), (12, 55), (37, 53), (58, 49), (80, 48), (43, 48), (20, 97), (69, 88)),
+    ],
+    'ta-hiragana': [
+        ((20, 35), (32, 35), (47, 34), (62, 30)),
+        ((43, 16), (37, 39), (33, 64), (21, 85)),
+        ((57, 45), (67, 44), (80, 44), (86, 45)),
+        ((50, 64), (49, 83), (68, 82), (87, 80)),
+    ],
+    'chi-hiragana': [
+        ((14, 36), (29, 37), (51, 34), (65, 30)),
+        ((38, 16), (33, 43), (31, 55), (29, 67), (76, 28), (98, 94), (34, 86)),
+    ],
+    'tsu-hiragana': [
+        ((15, 40), (110, 5), (95, 83), (38, 76)),
+    ],
+    'te-hiragana': [
+    ((11, 31), (45, 27), (69, 24), (77, 22)),
+    ((77, 22), (28, 31), (22, 88), (69, 82)),
+    ],
 }
 
 raw_path_strs = {
-    'shi-hiragana': [
-        "M343,149 C311,629 298,787 469,802 C610,832 747,700 804,610",
+    'te-hiragana': [
+        "M110,314 C451,277 690,249 779,229",
+        "M779,229 C282,318 222,885 692,825",
     ],
 }
 
@@ -116,8 +141,10 @@ def get_path(path_str) -> tuple:
     print(result)
     return result
 
-for raw_path_str in raw_path_strs['shi-hiragana']:
-    get_path(raw_path_str)
+for path_name in raw_path_strs:
+    print(path_name)
+    for raw_path_str in raw_path_strs[path_name]:
+        get_path(raw_path_str)
 
 def get_path_str(coords, offset) -> str:
     # coords: ((24, 33), (40, 33), (59, 32), (72, 29)), offset: (1,2) -->
@@ -134,7 +161,7 @@ def get_path_str(coords, offset) -> str:
     return result
 
 if __name__ == '__main__':
-    diagram_name = 'shi-hiragana'
+    diagram_name = 'te-hiragana'
     diagram = diagrams[diagram_name]
     stroke_count = len(diagram)
     cell_size = 100
