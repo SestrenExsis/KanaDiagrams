@@ -7,8 +7,8 @@ diagrams = {
         ((66, 40), (64, 51), (52, 94), (29, 84), (12, 64), (54, 40), (77, 53), (100, 67), (85, 86), (63, 89)),
     ],
     'i-hiragana': [
-        ((23, 2), (22, 33), (17, 63), (29, 75), (32, 78), (37, 73), (42, 59)),
-        ((69, 28), (78, 34), (87, 58), (86, 64)),
+        ((23, 12), (22, 43), (17, 73), (29, 85), (32, 88), (37, 83), (42, 69)),
+        ((69, 38), (78, 44), (87, 68), (86, 74)),
     ],
     'u-hiragana': [
         ((35, 22), (40, 23), (57, 27), (66, 28)),
@@ -55,6 +55,11 @@ diagrams = {
     'su-hiragana': [
         ((15, 33), (41, 33), (65, 32), (89, 31)),
         ((57, 15), (57, 40), (63, 69), (45, 68), (27, 64), (37, 39), (54, 49), (66, 63), (53, 86), (39, 91)),
+    ],
+    'se-hiragana': [
+        ((15, 48), (35, 48), (66, 45), (92, 43)),
+        ((68, 22), (66, 51), (75, 72), (52, 63)),
+        ((38, 25), (35, 96), (35, 84), (81, 84)),
     ],
     'so-hiragana': [
         ((29, 26), (45, 26), (54, 25), (64, 24), (24, 59), (21, 54), (12, 55), (37, 53), (58, 49), (80, 48), (43, 48), (20, 97), (69, 88)),
@@ -115,11 +120,36 @@ diagrams = {
     'n-hiragana': [],
 }
 
+diagram_names = [
+    'a-hiragana',
+    'i-hiragana',
+    'u-hiragana',
+    'e-hiragana',
+    'o-hiragana',
+    'ka-hiragana',
+    'ki-hiragana',
+    'ku-hiragana',
+    'ke-hiragana',
+    'ko-hiragana',
+    'sa-hiragana',
+    'shi-hiragana',
+    'su-hiragana',
+    'se-hiragana',
+    'so-hiragana',
+    'ta-hiragana',
+    'chi-hiragana',
+    'tsu-hiragana',
+    'te-hiragana',
+    'to-hiragana',
+    'na-hiragana',
+    'ni-hiragana',
+]
+
 raw_path_strs = {
-    'ni-hiragana': [
-        "M275,195 C242,615 233,999 384,761",
-        "M501,307 C612,300 766,293 859,293",
-        "M503,601 C516,761 588,798 894,775",
+    'se-hiragana': [
+        "M156,482 C359,483 668,453 921,430",
+        "M688,220 C668,517 754,723 526,633",
+        "M382,254 C357,965 355,844 814,841",
     ],
 }
 
@@ -158,33 +188,32 @@ def get_path_str(coords, offset) -> str:
     return result
 
 if __name__ == '__main__':
-    diagram_name = 'ni-hiragana'
-    diagram = diagrams[diagram_name]
-    stroke_count = len(diagram)
-    cell_size = 100
-    height = cell_size
-    half_height = int(0.5 * height)
-    width = stroke_count * cell_size
-    dwg = svgwrite.Drawing('test.svg', profile='full')
-    dwg.add_stylesheet('stroke-diagram.css', title="Stroke Diagram")
-    dwg.add(dwg.line((1, 1), (width - 1, 1), class_='stroke-diagram--bounding-box'))
-    dwg.add(dwg.line((1, 1), (1, height - 1), class_='stroke-diagram--bounding-box'))
-    dwg.add(dwg.line((1, height - 1), (width - 1, height - 1), class_='stroke-diagram--bounding-box'))
-    dwg.add(dwg.line((0, half_height), (width, half_height), class_='stroke-diagram--guide-line'))
-    for stroke_id in range(stroke_count):
-        # Draw grid
-        mid = int((stroke_id + 0.5) * cell_size)
-        dwg.add(dwg.line((mid, 1), (mid, height - 1), class_='stroke-diagram--guide-line'))
-        right = int((stroke_id + 1) * cell_size)
-        dwg.add(dwg.line((right - 1, 1), (right - 1, height - 1), class_='stroke-diagram--bounding-box'))
-        start_coord = None
-        for i in range(stroke_id + 1):
-            path_str = get_path_str(diagram[i], (stroke_id * cell_size, 0))
-            class_style = 'stroke-diagram--existing-path'
-            if i == stroke_id:
-                class_style = 'stroke-diagram--current-path'
-            dwg.add(dwg.path(path_str, class_=class_style))
-        start_coord = (stroke_id * cell_size + diagram[stroke_id][0][0], diagram[stroke_id][0][1])
-        dwg.add(dwg.circle(start_coord, 4, class_='stroke-diagram--path-start'))
-    dwg.save()
-    print("Done!")
+    for diagram_name in diagram_names:
+        cell_size = 100
+        diagram = diagrams[diagram_name]
+        stroke_count = len(diagram)
+        width = stroke_count * cell_size
+        height = cell_size
+        half_height = int(0.5 * height)
+        dwg = svgwrite.Drawing('assets/' + diagram_name + '.svg', profile='full')
+        dwg.add_stylesheet('stroke-diagram.css', title="Stroke Diagram")
+        dwg.add(dwg.line((1, 1), (width - 1, 1), class_='stroke-diagram--bounding-box'))
+        dwg.add(dwg.line((1, 1), (1, height - 1), class_='stroke-diagram--bounding-box'))
+        dwg.add(dwg.line((1, height - 1), (width - 1, height - 1), class_='stroke-diagram--bounding-box'))
+        dwg.add(dwg.line((0, half_height), (width, half_height), class_='stroke-diagram--guide-line'))
+        for stroke_id in range(stroke_count):
+            # Draw grid
+            mid = int((stroke_id + 0.5) * cell_size)
+            dwg.add(dwg.line((mid, 1), (mid, height - 1), class_='stroke-diagram--guide-line'))
+            right = int((stroke_id + 1) * cell_size)
+            dwg.add(dwg.line((right - 1, 1), (right - 1, height - 1), class_='stroke-diagram--bounding-box'))
+            start_coord = None
+            for i in range(stroke_id + 1):
+                path_str = get_path_str(diagram[i], (stroke_id * cell_size, 0))
+                class_style = 'stroke-diagram--existing-path'
+                if i == stroke_id:
+                    class_style = 'stroke-diagram--current-path'
+                dwg.add(dwg.path(path_str, class_=class_style))
+            start_coord = (stroke_id * cell_size + diagram[stroke_id][0][0], diagram[stroke_id][0][1])
+            dwg.add(dwg.circle(start_coord, 4, class_='stroke-diagram--path-start'))
+        dwg.save()
