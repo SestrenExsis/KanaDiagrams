@@ -19,7 +19,7 @@
     stroke-linejoin: square;
 }
 
-.stroke_order_diagram--current-path {
+.stroke-diagram--current-path {
     fill: none;
     stroke: #000;
     stroke-width: 3;
@@ -27,7 +27,7 @@
     stroke-linejoin: round;
 }
 
-.stroke_order_diagram--existing-path {
+.stroke-diagram--existing-path {
     fill: none;
     stroke: #aaa;
     stroke-width: 3;
@@ -35,7 +35,7 @@
     stroke-linejoin: round
 }
 
-.stroke_order_diagram--path-start {
+.stroke-diagram--path-start {
     fill: rgba(255, 0, 0, 0.7);
     stroke: none
 }

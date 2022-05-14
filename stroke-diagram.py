@@ -1,45 +1,4 @@
 import svgwrite
-'''
-'ka-hiragana': [],
-'ki-hiragana': [],
-'ku-hiragana': [],
-'ke-hiragana': [],
-'ko-hiragana': [],
-'sa-hiragana': [],
-'shi-hiragana': [],
-'su-hiragana': [],
-'se-hiragana': [],
-'so-hiragana': [],
-'ta-hiragana': [],
-'chi-hiragana': [],
-'tsu-hiragana': [],
-'te-hiragana': [],
-'to-hiragana': [],
-'na-hiragana': [],
-'ni-hiragana': [],
-'nu-hiragana': [],
-'ne-hiragana': [],
-'no-hiragana': [],
-'ha-hiragana': [],
-'hi-hiragana': [],
-'fu-hiragana': [],
-'he-hiragana': [],
-'ho-hiragana': [],
-'ma-hiragana': [],
-'mi-hiragana': [],
-'mu-hiragana': [],
-'me-hiragana': [],
-'mo-hiragana': [],
-'ya-hiragana': [],
-'yu-hiragana': [],
-'yo-hiragana': [],
-'ra-hiragana': [],
-'ri-hiragana': [],
-'ru-hiragana': [],
-'re-hiragana': [],
-'ro-hiragana': [],
-'n-hiragana': [],
-'''
 
 diagrams = {
     'a-hiragana': [
@@ -114,15 +73,53 @@ diagrams = {
         ((15, 40), (110, 5), (95, 83), (38, 76)),
     ],
     'te-hiragana': [
-    ((11, 31), (45, 27), (69, 24), (77, 22)),
-    ((77, 22), (28, 31), (22, 88), (69, 82)),
+        ((11, 31), (45, 27), (69, 24), (77, 22)),
+        ((77, 22), (28, 31), (22, 88), (69, 82)),
     ],
+    'to-hiragana': [
+        ((36, 19), (35, 27), (36, 38), (41, 50)),
+        ((70, 38), (2, 62), (13, 90), (70, 83)),
+    ],
+    'na-hiragana': [
+        ((17, 36), (30, 37), (46, 34), (56, 31)),
+        ((42, 18), (35, 43), (27, 61), (18, 74)),
+        ((66, 33), (73, 37), (81, 41), (87, 44)),
+        ((62, 47), (60, 70), (69, 91), (47, 88), (31, 83), (37, 62), (62, 72), (70, 74), (78, 78), (85, 82)),
+    ],
+    'ni-hiragana': [
+        ((27, 19), (24, 61), (23, 99), (38, 76)),
+        ((50, 30), (61, 30), (76, 29), (85, 29)),
+        ((50, 60), (51, 76), (58, 79), (89, 77)),
+    ],
+    'nu-hiragana': [],
+    'ne-hiragana': [],
+    'no-hiragana': [],
+    'ha-hiragana': [],
+    'hi-hiragana': [],
+    'fu-hiragana': [],
+    'he-hiragana': [],
+    'ho-hiragana': [],
+    'ma-hiragana': [],
+    'mi-hiragana': [],
+    'mu-hiragana': [],
+    'me-hiragana': [],
+    'mo-hiragana': [],
+    'ya-hiragana': [],
+    'yu-hiragana': [],
+    'yo-hiragana': [],
+    'ra-hiragana': [],
+    'ri-hiragana': [],
+    'ru-hiragana': [],
+    're-hiragana': [],
+    'ro-hiragana': [],
+    'n-hiragana': [],
 }
 
 raw_path_strs = {
-    'te-hiragana': [
-        "M110,314 C451,277 690,249 779,229",
-        "M779,229 C282,318 222,885 692,825",
+    'ni-hiragana': [
+        "M275,195 C242,615 233,999 384,761",
+        "M501,307 C612,300 766,293 859,293",
+        "M503,601 C516,761 588,798 894,775",
     ],
 }
 
@@ -161,7 +158,7 @@ def get_path_str(coords, offset) -> str:
     return result
 
 if __name__ == '__main__':
-    diagram_name = 'te-hiragana'
+    diagram_name = 'ni-hiragana'
     diagram = diagrams[diagram_name]
     stroke_count = len(diagram)
     cell_size = 100
@@ -183,11 +180,11 @@ if __name__ == '__main__':
         start_coord = None
         for i in range(stroke_id + 1):
             path_str = get_path_str(diagram[i], (stroke_id * cell_size, 0))
-            class_style = 'stroke_order_diagram--existing-path'
+            class_style = 'stroke-diagram--existing-path'
             if i == stroke_id:
-                class_style = 'stroke_order_diagram--current-path'
+                class_style = 'stroke-diagram--current-path'
             dwg.add(dwg.path(path_str, class_=class_style))
         start_coord = (stroke_id * cell_size + diagram[stroke_id][0][0], diagram[stroke_id][0][1])
-        dwg.add(dwg.circle(start_coord, 4, class_='stroke_order_diagram--path-start'))
+        dwg.add(dwg.circle(start_coord, 4, class_='stroke-diagram--path-start'))
     dwg.save()
     print("Done!")
