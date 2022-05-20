@@ -252,7 +252,11 @@ if __name__ == '__main__':
         width = stroke_count * cell_size
         height = cell_size
         half_height = int(0.5 * height)
-        dwg = svgwrite.Drawing('assets/' + diagram_name + '.svg', profile='full')
+        dwg = svgwrite.Drawing('assets/' + diagram_name + '.svg',
+            profile='full',
+            size=(width, height),
+            viewBox=(0, 0, width, height)
+            )
         dwg.add_stylesheet('stroke-diagram.css', title="Stroke Diagram")
         dwg.add(dwg.line((1, 1), (width - 1, 1), class_='stroke-diagram--bounding-box'))
         dwg.add(dwg.line((1, 1), (1, height - 1), class_='stroke-diagram--bounding-box'))
