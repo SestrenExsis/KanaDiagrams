@@ -1,3 +1,44 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<?xml-stylesheet href="stroke-diagram.css" type="text/css" title="Stroke Diagram" alternate="no" media="screen"?>
-<svg baseProfile="full" height="100" version="1.1" viewBox="(0, 0, 300, 100)" width="300" xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink"><defs /><line class="stroke-diagram--bounding-box" x1="1" x2="299" y1="1" y2="1" /><line class="stroke-diagram--bounding-box" x1="1" x2="1" y1="1" y2="99" /><line class="stroke-diagram--bounding-box" x1="1" x2="299" y1="99" y2="99" /><line class="stroke-diagram--guide-line" x1="0" x2="300" y1="50" y2="50" /><line class="stroke-diagram--guide-line" x1="50" x2="50" y1="1" y2="99" /><line class="stroke-diagram--bounding-box" x1="99" x2="99" y1="1" y2="99" /><path class="stroke-diagram--current-path" d="M 14 34 C 35 34 46 33 59 30" /><circle class="stroke-diagram--path-start" cx="14" cy="34" r="4" /><line class="stroke-diagram--guide-line" x1="150" x2="150" y1="1" y2="99" /><line class="stroke-diagram--bounding-box" x1="199" x2="199" y1="1" y2="99" /><path class="stroke-diagram--existing-path" d="M 114 34 C 135 34 146 33 159 30" /><path class="stroke-diagram--current-path" d="M 136 17 C 134 41 141 72 124 72 111 72 118 42 134 53 141 62 121 80 140 87 168 89 182 87 170 61" /><circle class="stroke-diagram--path-start" cx="136" cy="17" r="4" /><line class="stroke-diagram--guide-line" x1="250" x2="250" y1="1" y2="99" /><line class="stroke-diagram--bounding-box" x1="299" x2="299" y1="1" y2="99" /><path class="stroke-diagram--existing-path" d="M 214 34 C 235 34 246 33 259 30" /><path class="stroke-diagram--existing-path" d="M 236 17 C 234 41 241 72 224 72 211 72 218 42 234 53 241 62 221 80 240 87 268 89 282 87 270 61" /><path class="stroke-diagram--current-path" d="M 269 38 C 276 42 282 49 286 52" /><circle class="stroke-diagram--path-start" cx="269" cy="38" r="4" /></svg>
+<svg baseProfile="full" height="100" version="1.1" viewBox="(0, 0, 300, 100)" width="300" xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style type="text/css"><![CDATA[
+.stroke-diagram--outer-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden
+}
+.stroke-diagram--guide-line {
+    fill: none;
+    stroke: #ddd;
+    stroke-width: 2;
+    stroke-linecap: square;
+    stroke-linejoin: square;
+    stroke-dasharray: 5, 5
+}
+.stroke-diagram--bounding-box {
+    fill: none;
+    stroke: #ddd;
+    stroke-width: 2;
+    stroke-linecap: square;
+    stroke-linejoin: square;
+}
+
+.stroke-diagram--current-path {
+    fill: none;
+    stroke: #000;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.stroke-diagram--existing-path {
+    fill: none;
+    stroke: #aaa;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
+.stroke-diagram--path-start {
+    fill: rgba(255, 0, 0, 0.7);
+    stroke: none
+}
+]]></style></defs><line class="stroke-diagram--bounding-box" x1="1" x2="299" y1="1" y2="1" /><line class="stroke-diagram--bounding-box" x1="1" x2="1" y1="1" y2="99" /><line class="stroke-diagram--bounding-box" x1="1" x2="299" y1="99" y2="99" /><line class="stroke-diagram--guide-line" x1="0" x2="300" y1="50" y2="50" /><line class="stroke-diagram--guide-line" x1="50" x2="50" y1="1" y2="99" /><line class="stroke-diagram--bounding-box" x1="99" x2="99" y1="1" y2="99" /><path class="stroke-diagram--current-path" d="M 14 34 C 35 34 46 33 59 30" /><circle class="stroke-diagram--path-start" cx="14" cy="34" r="4" /><line class="stroke-diagram--guide-line" x1="150" x2="150" y1="1" y2="99" /><line class="stroke-diagram--bounding-box" x1="199" x2="199" y1="1" y2="99" /><path class="stroke-diagram--existing-path" d="M 114 34 C 135 34 146 33 159 30" /><path class="stroke-diagram--current-path" d="M 136 17 C 134 41 141 72 124 72 111 72 118 42 134 53 141 62 121 80 140 87 168 89 182 87 170 61" /><circle class="stroke-diagram--path-start" cx="136" cy="17" r="4" /><line class="stroke-diagram--guide-line" x1="250" x2="250" y1="1" y2="99" /><line class="stroke-diagram--bounding-box" x1="299" x2="299" y1="1" y2="99" /><path class="stroke-diagram--existing-path" d="M 214 34 C 235 34 246 33 259 30" /><path class="stroke-diagram--existing-path" d="M 236 17 C 234 41 241 72 224 72 211 72 218 42 234 53 241 62 221 80 240 87 268 89 282 87 270 61" /><path class="stroke-diagram--current-path" d="M 269 38 C 276 42 282 49 286 52" /><circle class="stroke-diagram--path-start" cx="269" cy="38" r="4" /></svg>

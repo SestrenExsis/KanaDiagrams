@@ -1,5 +1,49 @@
 import svgwrite
 
+stylesheet = '''
+.stroke-diagram--outer-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden
+}
+.stroke-diagram--guide-line {
+    fill: none;
+    stroke: #ddd;
+    stroke-width: 2;
+    stroke-linecap: square;
+    stroke-linejoin: square;
+    stroke-dasharray: 5, 5
+}
+.stroke-diagram--bounding-box {
+    fill: none;
+    stroke: #ddd;
+    stroke-width: 2;
+    stroke-linecap: square;
+    stroke-linejoin: square;
+}
+
+.stroke-diagram--current-path {
+    fill: none;
+    stroke: #000;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.stroke-diagram--existing-path {
+    fill: none;
+    stroke: #aaa;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
+.stroke-diagram--path-start {
+    fill: rgba(255, 0, 0, 0.7);
+    stroke: none
+}
+'''
+
 diagrams = {
     'a-hiragana': [
         ((24, 33), (40, 33), (59, 32), (72, 29)),
@@ -556,7 +600,7 @@ if __name__ == '__main__':
             size=(width, height),
             viewBox=(0, 0, width, height)
             )
-        dwg.add_stylesheet('stroke-diagram.css', title="Stroke Diagram")
+        dwg.defs.add(dwg.style(stylesheet))
         dwg.add(dwg.line((1, 1), (width - 1, 1), class_='stroke-diagram--bounding-box'))
         dwg.add(dwg.line((1, 1), (1, height - 1), class_='stroke-diagram--bounding-box'))
         dwg.add(dwg.line((1, height - 1), (width - 1, height - 1), class_='stroke-diagram--bounding-box'))
